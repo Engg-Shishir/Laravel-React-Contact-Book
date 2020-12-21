@@ -25,6 +25,8 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "bootswatch": "^4.5.3"
+        "bootswatch": "^4.5.3",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0"
     }
 }
