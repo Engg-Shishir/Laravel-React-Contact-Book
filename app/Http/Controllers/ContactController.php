@@ -25,5 +25,25 @@ class ContactController extends Controller
     {
       $contacts = Contact::all();
       return response()->json(['status'=>200, 'contacts'=>$contacts]);
+    }    
+    
+    public function edit($id)
+    {
+      $contact = Contact::find($id);
+      return response()->json(['status'=>200, 'contact'=>$contact]);
+    }
+
+    public function update(Request $request)
+    {
+      $new = Contact::where('id', $request->id)->update([
+        'fullname' => $request->fullname,
+        'email' => $request->email,
+        'phone' => $request->phone,
+      ]);
+
+      if($new)
+      {
+          return response()->json(['status'=>200]);
+      }
     }
 }

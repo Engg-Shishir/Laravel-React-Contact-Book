@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 class Contact extends React.Component{
   render(){
     const{contact} = this.props;
@@ -20,10 +22,10 @@ class Contact extends React.Component{
                   <strong>{contact.phone}</strong>
                 </div>
                 <div className="col-md-1 text-center">
-                  <a href="" className="btn btn-sm bg-warning text-dark"><strong>Edit</strong></a>
+                  <Link to={`/edit/${contact.id}`} className="btn btn-sm bg-warning text-dark"><strong>Edit</strong></Link>
                 </div>
                 <div className="col-md-1 text-center">
-                  <a href="" className="btn btn-sm btn-danger text-dark"><strong>Delete</strong></a>
+                  <Link to="" className="btn btn-sm btn-danger text-dark"><strong>Delete</strong></Link>
                 </div>
               </div>
             </div>

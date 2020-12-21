@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 Route::post('/contact', [ContactController::class,'store']);
 Route::get('/contact', [ContactController::class,'index']);
+Route::get('/edit/{id}', [ContactController::class,'edit']);
+
+Route::post('/update', [ContactController::class,'update']);

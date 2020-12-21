@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Nav from "./Nav";
 import AddContact from "./AddContact";
 import Home from "./Home";
+import EditContact from "./EditContact";
 import './app.css';
 
 function Example() {
@@ -14,6 +15,7 @@ function Example() {
         <Switch>
            <Route path="/" exact component={Home} />
            <Route path="/addContact" exact component={AddContact} />
+           <Route path="/edit/:id" exact component={EditContact} />
         </Switch>
         </>
         </Router>
