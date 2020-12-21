@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Nav from "./Nav";
-import Contacts from "./Contacts";
+import Contact from "./Contact";
 import AddContact from "./AddContact";
 
 function Example() {
@@ -11,7 +11,7 @@ function Example() {
         <>
         <Nav />
         <Switch>
-           <Route path="/" exact component={Contacts} />
+           <Route path="/" exact component={Contact} />
            <Route path="/addContact" exact component={AddContact} />
         </Switch>
         </>

@@ -12,3 +12,5 @@
 + run `npm run watch`
 + run `php artisan serve`
 + run `npm install react-router react-router-dom`
++ run `npm i @babel/plugin-proposal-class-properties`
++ run `npm run watch`
