@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('/contact', [ContactController::class,'store']);
+Route::get('/contact', [ContactController::class,'index']);

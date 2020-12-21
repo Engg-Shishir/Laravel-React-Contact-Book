@@ -17,7 +17,13 @@ class ContactController extends Controller
 
         if($new)
         {
-            return response()->json('hello react response');
+            return response()->json(['status'=>200]);
         }
+    }   
+    
+    public function index()
+    {
+      $contacts = Contact::all();
+      return response()->json(['status'=>200, 'contacts'=>$contacts]);
     }
 }

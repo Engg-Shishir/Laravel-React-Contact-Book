@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Nav from "./Nav";
-import Contact from "./Contact";
 import AddContact from "./AddContact";
+import Home from "./Home";
+import './app.css';
 
 function Example() {
     return (
@@ -11,7 +12,7 @@ function Example() {
         <>
         <Nav />
         <Switch>
-           <Route path="/" exact component={Contact} />
+           <Route path="/" exact component={Home} />
            <Route path="/addContact" exact component={AddContact} />
         </Switch>
         </>

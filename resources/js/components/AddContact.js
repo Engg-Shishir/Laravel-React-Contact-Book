@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 class AddContact extends React.Component{
 
@@ -13,9 +13,14 @@ class AddContact extends React.Component{
     this.setState({[e.target.name]: e.target.value})
   }
 
-  saveContact = async (e) =>{
+  saveContact = async (e) =>{ 
     e.preventDefault();
     const res = await axios.post("/contact", this.state);
+    this.setState({fullname:'',email:'',phone:''});
+    if(res.data.status === 200)
+    {
+      this.props.history.push("/");
+    }
   }
 
   render(){
