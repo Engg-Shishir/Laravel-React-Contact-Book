@@ -24,6 +24,15 @@ class Home extends React.Component{
     this.fetchContact();
   }
 
+  deleteContact = async (id) => {
+    const res = await Axios.get(`/delete/${id}`);  
+    
+    if(res.data.status === 200)
+    {
+      this.fetchContact();
+    }
+  }
+
   render(){
 
     if(this.state.loading)
@@ -37,7 +46,7 @@ class Home extends React.Component{
     return(
       <div>
        {this.state.contacts.map(contact => (
-         <Contact contact={contact} key={contact.id} />
+         <Contact contact={contact} key={contact.id} deleteContact={this.deleteContact}/>
        ))}
       </div>
     )

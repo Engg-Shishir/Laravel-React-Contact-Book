@@ -46,4 +46,15 @@ class ContactController extends Controller
           return response()->json(['status'=>200]);
       }
     }
+
+
+    public function delete($id)
+    {
+      $done = Contact::find($id)->delete();     
+      
+      if($done)
+      {
+          return response()->json(['status'=>200]);
+      }
+    }
 }

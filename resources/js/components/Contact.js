@@ -2,8 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class Contact extends React.Component{
+  
+  delContact = (id) => {
+   this.props.deleteContact(id);
+  }
+
   render(){
     const{contact} = this.props;
+
     return(
         <div className="container">
           <div className="card">
@@ -25,7 +31,7 @@ class Contact extends React.Component{
                   <Link to={`/edit/${contact.id}`} className="btn btn-sm bg-warning text-dark"><strong>Edit</strong></Link>
                 </div>
                 <div className="col-md-1 text-center">
-                  <Link to="" className="btn btn-sm btn-danger text-dark"><strong>Delete</strong></Link>
+                  <button className="btn btn-sm btn-danger text-dark" onClick={()=> this.delContact(contact.id)}><strong>Delete</strong></button>
                 </div>
               </div>
             </div>

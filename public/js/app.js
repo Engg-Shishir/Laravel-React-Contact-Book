@@ -71458,6 +71458,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -71467,14 +71469,28 @@ var Contact = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Contact);
 
   function Contact() {
+    var _this;
+
     _classCallCheck(this, Contact);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "delContact", function (id) {
+      _this.props.deleteContact(id);
+    });
+
+    return _this;
   }
 
   _createClass(Contact, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var contact = this.props.contact;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
@@ -71501,9 +71517,11 @@ var Contact = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-sm bg-warning text-dark"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Edit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-1 text-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "",
-        className: "btn btn-sm btn-danger text-dark"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-sm btn-danger text-dark",
+        onClick: function onClick() {
+          return _this2.delContact(contact.id);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Delete")))))));
     }
   }]);
@@ -71900,6 +71918,36 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, _callee);
     })));
 
+    _defineProperty(_assertThisInitialized(_this), "deleteContact", /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/delete/".concat(id));
+
+              case 2:
+                res = _context2.sent;
+
+                if (res.data.status === 200) {
+                  _this.fetchContact();
+                }
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function (_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
+
     return _this;
   }
 
@@ -71911,6 +71959,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (this.state.loading) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "container"
@@ -71920,7 +71970,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.contacts.map(function (contact) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Contact__WEBPACK_IMPORTED_MODULE_3__["default"], {
           contact: contact,
-          key: contact.id
+          key: contact.id,
+          deleteContact: _this2.deleteContact
         });
       }));
     }
