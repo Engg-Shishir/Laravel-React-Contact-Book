@@ -6426,7 +6426,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image{\r\n  width: 50px;\r\n  height: 50px;\r\n  display: block;\r\n  background: rgb(9, 140, 192);\r\n  line-height: 50px;\r\n  text-align: center;\r\n  border-radius: 50%;\r\n  color: aliceblue;\r\n}\r\n.card{\r\n  margin-bottom: 15px !important;\r\n}\r\n.h5{\r\n  color: rgb(2, 177, 40);\r\n  font-weight: 800;\r\n}", ""]);
+exports.push([module.i, ".image{\r\n  width: 50px;\r\n  height: 50px;\r\n  display: block;\r\n  background: rgb(9, 140, 192);\r\n  line-height: 50px;\r\n  text-align: center;\r\n  border-radius: 50%;\r\n  color: aliceblue;\r\n}\r\n.card{\r\n  margin-bottom: 15px !important;\r\n}\r\n.h5{\r\n  color: rgb(2, 177, 40);\r\n  font-weight: 800;\r\n}\r\n#success{\r\n  display:none;\r\n}", ""]);
 
 // exports
 
@@ -71426,6 +71426,78 @@ var AddContact = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Alert.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/Alert.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var Alert = /*#__PURE__*/function (_React$Component) {
+  _inherits(Alert, _React$Component);
+
+  var _super = _createSuper(Alert);
+
+  function Alert() {
+    _classCallCheck(this, Alert);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Alert, [{
+    key: "render",
+    value: function render() {
+      var message = this.props.message;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "success",
+        className: "alert bg-success alert-dismissible fade show mt-1",
+        role: "alert"
+      }, message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        "class": "close",
+        "data-dismiss": "alert",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7")));
+    }
+  }]);
+
+  return Alert;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Alert);
+
+/***/ }),
+
 /***/ "./resources/js/components/Contact.js":
 /*!********************************************!*\
   !*** ./resources/js/components/Contact.js ***!
@@ -71495,8 +71567,6 @@ var Contact = /*#__PURE__*/function (_React$Component) {
 
       var contact = this.props.contact;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
@@ -71524,7 +71594,7 @@ var Contact = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.delContact(contact.id);
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Delete")))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Delete"))))));
     }
   }]);
 
@@ -71835,6 +71905,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Contact */ "./resources/js/components/Contact.js");
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Alert */ "./resources/js/components/Alert.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -71869,6 +71942,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var Home = /*#__PURE__*/function (_React$Component) {
   _inherits(Home, _React$Component);
 
@@ -71887,7 +71962,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       contacts: [],
-      loading: true
+      loading: true,
+      message: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "fetchContact", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -71934,7 +72010,20 @@ var Home = /*#__PURE__*/function (_React$Component) {
                 res = _context2.sent;
 
                 if (res.data.status === 200) {
+                  _this.setState({
+                    message: res.data.success
+                  });
+
                   _this.fetchContact();
+
+                  jquery__WEBPACK_IMPORTED_MODULE_5___default()('#success').css({
+                    'display': 'block'
+                  });
+                  setTimeout(function () {
+                    jquery__WEBPACK_IMPORTED_MODULE_5___default()('#success').css({
+                      'display': 'none'
+                    });
+                  }, 8000);
                 }
 
               case 4:
@@ -71969,7 +72058,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Loading..."));
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.contacts.map(function (contact) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Alert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        message: this.state.message
+      }), this.state.contacts.map(function (contact) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Contact__WEBPACK_IMPORTED_MODULE_3__["default"], {
           contact: contact,
           key: contact.id,

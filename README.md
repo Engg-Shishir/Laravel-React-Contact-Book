@@ -17,7 +17,7 @@
 
 
 
-
++ install jquery `npm install jquery --save`
 
 >#### To run this project
 + Start Your Loacal server

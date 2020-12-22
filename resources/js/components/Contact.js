@@ -11,7 +11,6 @@ class Contact extends React.Component{
     const{contact} = this.props;
 
     return(
-        <div className="container">
           <div className="card">
             <div className="card-body">
               <div className="row">
@@ -36,7 +35,6 @@ class Contact extends React.Component{
               </div>
             </div>
           </div>
-        </div>
     )
   }
 }

@@ -2,13 +2,19 @@
 import React from 'react';
 import Axios from 'axios';
 import Contact from './Contact';
+import Alert from './Alert';
+import $ from 'jquery';
+
+
+
 
 class Home extends React.Component{
 
-  
+   
    state = {
      contacts:[],
      loading:true,
+     message:''
    }
 
   fetchContact = async () => {
@@ -21,7 +27,7 @@ class Home extends React.Component{
   }
   componentDidMount()
   {
-    this.fetchContact();
+    this.fetchContact(); 
   }
 
   deleteContact = async (id) => {
@@ -29,7 +35,14 @@ class Home extends React.Component{
     
     if(res.data.status === 200)
     {
+      this.setState({message:res.data.success});
+      
       this.fetchContact();
+      $('#success').css({'display':'block'});
+
+      setTimeout(()=>{
+      $('#success').css({'display':'none'});
+     }, 8000);
     }
   }
 
@@ -44,7 +57,8 @@ class Home extends React.Component{
       );
     }
     return(
-      <div>
+      <div className="container">
+      <Alert message={this.state.message} />
        {this.state.contacts.map(contact => (
          <Contact contact={contact} key={contact.id} deleteContact={this.deleteContact}/>
        ))}
