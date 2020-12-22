@@ -9,5 +9,9 @@
   color: aliceblue;
 }
 .card{
-  margin-bottom: 30px !important;
+  margin-bottom: 15px !important;
+}
+.h5{
+  color: rgb(2, 177, 40);
+  font-weight: 800;
 }

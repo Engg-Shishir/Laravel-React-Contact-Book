@@ -15,10 +15,11 @@ const Nav = () => {
   <div className="collapse navbar-collapse" id="navbarColor01">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <Link className="nav-link" to="/">Home
-          <span className="sr-only">(current)</span>
+        <Link className="nav-link" to="/"><strong className="h5">Laravel & React</strong>
         </Link>
       </li>
+    </ul>
+    <ul className="navbar-nav ml-auto">
       <li className="nav-item">
         <Link className="nav-link" to="/addContact">AddContact</Link>
       </li>

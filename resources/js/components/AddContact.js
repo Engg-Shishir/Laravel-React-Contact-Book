@@ -28,9 +28,9 @@ class AddContact extends React.Component{
       <div className="container">
         <div className="row">
           <div className="col-md-7 m-auto">
-            <div className="card">
-              <div className="card-header">
-                <span></span>
+            <div className="card mt-5">
+              <div className="card-header text-center">
+                <span className="text-danger h3">Add Contact</span>
               </div>
               <div className="card-body">
                 <form onSubmit={this.saveContact}>

@@ -14,3 +14,13 @@
 + run `npm install react-router react-router-dom`
 + run `npm i @babel/plugin-proposal-class-properties`
 + run `npm run watch`
+
+
+
+
+
+>#### To run this project
++ Start Your Loacal server
++ Create database and setup your `.env` file
++ run `npm run watch`
++ run `php artisan serve`

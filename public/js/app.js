@@ -6426,7 +6426,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image{\r\n  width: 50px;\r\n  height: 50px;\r\n  display: block;\r\n  background: rgb(9, 140, 192);\r\n  line-height: 50px;\r\n  text-align: center;\r\n  border-radius: 50%;\r\n  color: aliceblue;\r\n}\r\n.card{\r\n  margin-bottom: 30px !important;\r\n}", ""]);
+exports.push([module.i, ".image{\r\n  width: 50px;\r\n  height: 50px;\r\n  display: block;\r\n  background: rgb(9, 140, 192);\r\n  line-height: 50px;\r\n  text-align: center;\r\n  border-radius: 50%;\r\n  color: aliceblue;\r\n}\r\n.card{\r\n  margin-bottom: 15px !important;\r\n}\r\n.h5{\r\n  color: rgb(2, 177, 40);\r\n  font-weight: 800;\r\n}", ""]);
 
 // exports
 
@@ -71364,10 +71364,12 @@ var AddContact = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "col-md-7 m-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card"
+        className: "card mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "card-header text-center"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "text-danger h3"
+      }, "Add Contact")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
         onSubmit: this.saveContact
@@ -72024,9 +72026,11 @@ var Nav = function Nav() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "nav-link",
     to: "/"
-  }, "Home", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "sr-only"
-  }, "(current)"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+    className: "h5"
+  }, "Laravel & React")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "navbar-nav ml-auto"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "nav-link",
