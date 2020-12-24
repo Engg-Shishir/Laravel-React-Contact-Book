@@ -9,7 +9,19 @@ class ContactController extends Controller
 {    
     # Store Contact
     public function store(Request $request)
-    {
+    {        
+      
+      #<-------===== Custom Validation Message ======------>
+      $request->validate([
+          'fullname' => 'required|max:255',
+          'email' => 'required|max:255',
+          'phone' => 'required|max:255',
+      ],[
+          'fullname.required' => 'Enter fullname',
+          'email.required' => 'Enter email',
+          'phone.required' => 'Enter phone no',
+      ]);
+      
         $new = Contact::create([
           'fullname' => $request->fullname,
           'email' => $request->email,
@@ -18,7 +30,7 @@ class ContactController extends Controller
 
         if($new)
         {
-            return response()->json(['status'=>200]);
+          return response()->json(['status'=>200,'success'=>'Contact Added Successfully']);
         }
     }   
     
@@ -47,7 +59,7 @@ class ContactController extends Controller
 
       if($new)
       {
-          return response()->json(['status'=>200]);
+        return response()->json(['status'=>200,'success'=>'Contact Updated Successfully']);
       }
     }
 
@@ -59,7 +71,7 @@ class ContactController extends Controller
       
       if($done)
       {
-          return response()->json(['status'=>200,'success'=>'Contact Delete Successfully']);
+          return response()->json(['status'=>200,'error'=>'Contact Delete Successfully']);
       }
     }
 }

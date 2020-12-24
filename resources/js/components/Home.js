@@ -35,14 +35,14 @@ class Home extends React.Component{
     
     if(res.data.status === 200)
     {
-      this.setState({message:res.data.success});
+      this.setState({message:res.data.error});
       
       this.fetchContact();
-      $('#success').css({'display':'block'});
+      $('#error').css({'display':'block'});
 
       setTimeout(()=>{
-      $('#success').css({'display':'none'});
-     }, 8000);
+      $('#error').css({'display':'none'});
+     }, 2000);
     }
   }
 
@@ -57,7 +57,7 @@ class Home extends React.Component{
       );
     }
     return(
-      <div className="container">
+      <div className="container tableshow">
       <Alert message={this.state.message} />
        {this.state.contacts.map(contact => (
          <Contact contact={contact} key={contact.id} deleteContact={this.deleteContact}/>

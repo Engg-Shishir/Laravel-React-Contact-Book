@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Nav from "./Nav";
+import Footer from "./Footer";
 import AddContact from "./AddContact";
 import Home from "./Home";
 import EditContact from "./EditContact";
@@ -17,6 +18,7 @@ function Example() {
            <Route path="/addContact" exact component={AddContact} />
            <Route path="/edit/:id" exact component={EditContact} />
         </Switch>
+        <Footer />
         </>
         </Router>
     );

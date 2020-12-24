@@ -18,13 +18,14 @@ const Nav = () => {
   <div className="collapse navbar-collapse" id="navbarColor01">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <Link className="nav-link" to="/"><strong className="h5">Laravel & React</strong>
+        <Link className="nav-link" to="/"><strong className="text-danger h3">Contact Book</strong>
         </Link>
       </li>
     </ul>
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <Link className="nav-link" to="/addContact">AddContact</Link>
+        <Link className="nav-link" to="/addContact">
+        <i className="fas fa-plus"></i>&nbsp;AddContact</Link>
       </li>
     </ul>
   </div>

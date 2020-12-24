@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Alert from './Alert';
+import $ from 'jquery';
 
 class EditContact extends React.Component{
 
@@ -7,7 +9,8 @@ class EditContact extends React.Component{
     id:'',
     fullname:'',
     email:'',
-    phone:''
+    phone:'',
+    message:''
   }
 
   handleInput = (e) =>{
@@ -21,7 +24,14 @@ class EditContact extends React.Component{
     this.setState({fullname:'',email:'',phone:''});
     if(res.data.status === 200)
     {
+      this.setState({message:res.data.success});
+      
+      $('#success').css({'display':'block'});
+
+      setTimeout(()=>{
+      $('#success').css({'display':'none'});
       this.props.history.push("/");
+     }, 3000);
     }
   }
   
@@ -40,9 +50,10 @@ class EditContact extends React.Component{
       <div className="container">
         <div className="row">
           <div className="col-md-7 m-auto">
-            <div className="card">
-              <div className="card-header">
-                <span></span>
+            <Alert message={this.state.message} />
+            <div className="card mt-5">
+              <div className="card-header text-center">
+                <span className="text-danger h3">Update Contact</span>
               </div>
               <div className="card-body">
                 <form onSubmit={this.updateContact}>

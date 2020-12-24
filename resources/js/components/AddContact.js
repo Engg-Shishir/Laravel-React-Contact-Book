@@ -1,16 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import Alert from './Alert';
+import $ from 'jquery';
 
 class AddContact extends React.Component{
 
   state = {
     fullname:'',
     email:'',
-    phone:''
+    phone:'',
+    message:''
   }
 
   handleInput = (e) =>{
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({[e.target.name]: e.target.value});
   }
 
   saveContact = async (e) =>{ 
@@ -19,15 +22,23 @@ class AddContact extends React.Component{
     this.setState({fullname:'',email:'',phone:''});
     if(res.data.status === 200)
     {
-      this.props.history.push("/");
+      this.setState({message:res.data.success});
+      $('#success').css('display','block');
+
+      setTimeout(()=>{
+      $('#success').css({'display':'none'});
+      //this.props.history.push("/");
+     }, 8000);
     }
   }
 
   render(){
     return(
+      <>
       <div className="container">
         <div className="row">
           <div className="col-md-7 m-auto">
+            <Alert message={this.state.message} />
             <div className="card mt-5">
               <div className="card-header text-center">
                 <span className="text-danger h3">Add Contact</span>
@@ -55,6 +66,7 @@ class AddContact extends React.Component{
           </div>
         </div>
       </div>
+      </>
     )
   }
 }

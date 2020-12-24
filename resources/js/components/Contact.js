@@ -27,10 +27,10 @@ class Contact extends React.Component{
                   <strong>{contact.phone}</strong>
                 </div>
                 <div className="col-md-1 text-center">
-                  <Link to={`/edit/${contact.id}`} className="btn btn-sm bg-warning text-dark"><strong>Edit</strong></Link>
+                  <Link to={`/edit/${contact.id}`} className="btn btn-sm bg-warning text-dark"><strong><i className="fas fa-edit"></i></strong></Link>
                 </div>
                 <div className="col-md-1 text-center">
-                  <button className="btn btn-sm btn-danger text-dark" onClick={()=> this.delContact(contact.id)}><strong>Delete</strong></button>
+                  <button className="btn btn-sm btn-danger text-dark" onClick={()=> this.delContact(contact.id)}><strong><i className="fas fa-trash"></i></strong></button>
                 </div>
               </div>
             </div>

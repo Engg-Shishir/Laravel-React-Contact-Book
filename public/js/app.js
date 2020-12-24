@@ -6426,7 +6426,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image{\r\n  width: 50px;\r\n  height: 50px;\r\n  display: block;\r\n  background: rgb(9, 140, 192);\r\n  line-height: 50px;\r\n  text-align: center;\r\n  border-radius: 50%;\r\n  color: aliceblue;\r\n}\r\n.card{\r\n  margin-bottom: 15px !important;\r\n}\r\n.h5{\r\n  color: rgb(2, 177, 40);\r\n  font-weight: 800;\r\n}\r\n#success{\r\n  display:none;\r\n}", ""]);
+exports.push([module.i, ".tableshow{\r\n  min-height: 50vh;\r\n}\r\n\r\n.image{\r\n  width: 50px;\r\n  height: 50px;\r\n  display: block;\r\n  background: rgb(9, 140, 192);\r\n  line-height: 50px;\r\n  text-align: center;\r\n  border-radius: 50%;\r\n  color: aliceblue;\r\n}\r\n.card{\r\n  margin-bottom: 15px !important;\r\n}\r\n.h5{\r\n  color: rgb(2, 177, 40);\r\n  font-weight: 800;\r\n}\r\n#success{\r\n  display:none;\r\n}\r\n#error{\r\n  display:none;\r\n}", ""]);
 
 // exports
 
@@ -71255,6 +71255,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Alert */ "./resources/js/components/Alert.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -71288,6 +71291,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var AddContact = /*#__PURE__*/function (_React$Component) {
   _inherits(AddContact, _React$Component);
 
@@ -71307,7 +71312,8 @@ var AddContact = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       fullname: '',
       email: '',
-      phone: ''
+      phone: '',
+      message: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleInput", function (e) {
@@ -71335,7 +71341,16 @@ var AddContact = /*#__PURE__*/function (_React$Component) {
                 });
 
                 if (res.data.status === 200) {
-                  _this.props.history.push("/");
+                  _this.setState({
+                    message: res.data.success
+                  });
+
+                  jquery__WEBPACK_IMPORTED_MODULE_4___default()('#success').css('display', 'block');
+                  setTimeout(function () {
+                    jquery__WEBPACK_IMPORTED_MODULE_4___default()('#success').css({
+                      'display': 'none'
+                    }); //this.props.history.push("/");
+                  }, 8000);
                 }
 
               case 6:
@@ -71357,13 +71372,15 @@ var AddContact = /*#__PURE__*/function (_React$Component) {
   _createClass(AddContact, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "col-md-7 m-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Alert__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        message: this.state.message
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "card mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "card-header text-center"
@@ -71415,7 +71432,7 @@ var AddContact = /*#__PURE__*/function (_React$Component) {
         type: "submit",
         className: "btn btn-info form-control",
         value: "Add Contact"
-      }))))))));
+      })))))))));
     }
   }]);
 
@@ -71476,18 +71493,15 @@ var Alert = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var message = this.props.message;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "success",
-        className: "alert bg-success alert-dismissible fade show mt-1",
+        className: "alert bg-success alert-dismissible fade show mt-1 text-center",
         role: "alert"
-      }, message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        "class": "close",
-        "data-dismiss": "alert",
-        "aria-label": "Close"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "aria-hidden": "true"
-      }, "\xD7")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, message)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "error",
+        className: "alert bg-danger alert-dismissible fade show mt-1 text-center",
+        role: "alert"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, message)));
     }
   }]);
 
@@ -71587,14 +71601,18 @@ var Contact = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/edit/".concat(contact.id),
         className: "btn btn-sm bg-warning text-dark"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Edit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-edit"
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-1 text-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-sm btn-danger text-dark",
         onClick: function onClick() {
           return _this2.delContact(contact.id);
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Delete"))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-trash"
+      })))))));
     }
   }]);
 
@@ -71620,6 +71638,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Alert */ "./resources/js/components/Alert.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -71653,6 +71674,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var EditContact = /*#__PURE__*/function (_React$Component) {
   _inherits(EditContact, _React$Component);
 
@@ -71673,7 +71696,8 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
       id: '',
       fullname: '',
       email: '',
-      phone: ''
+      phone: '',
+      message: ''
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleInput", function (e) {
@@ -71701,7 +71725,20 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
                 });
 
                 if (res.data.status === 200) {
-                  _this.props.history.push("/");
+                  _this.setState({
+                    message: res.data.success
+                  });
+
+                  jquery__WEBPACK_IMPORTED_MODULE_4___default()('#success').css({
+                    'display': 'block'
+                  });
+                  setTimeout(function () {
+                    jquery__WEBPACK_IMPORTED_MODULE_4___default()('#success').css({
+                      'display': 'none'
+                    });
+
+                    _this.props.history.push("/");
+                  }, 3000);
                 }
 
               case 6:
@@ -71771,11 +71808,15 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "col-md-7 m-auto"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Alert__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        message: this.state.message
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "card mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "card-header text-center"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        className: "text-danger h3"
+      }, "Update Contact")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
         onSubmit: this.updateContact
@@ -71851,11 +71892,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Nav */ "./resources/js/components/Nav.js");
-/* harmony import */ var _AddContact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddContact */ "./resources/js/components/AddContact.js");
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Home */ "./resources/js/components/Home.js");
-/* harmony import */ var _EditContact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditContact */ "./resources/js/components/EditContact.js");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.css */ "./resources/js/components/app.css");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.js");
+/* harmony import */ var _AddContact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddContact */ "./resources/js/components/AddContact.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Home */ "./resources/js/components/Home.js");
+/* harmony import */ var _EditContact__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EditContact */ "./resources/js/components/EditContact.js");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.css */ "./resources/js/components/app.css");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -71869,16 +71912,16 @@ function Example() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/",
     exact: true,
-    component: _Home__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _Home__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/addContact",
     exact: true,
-    component: _AddContact__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _AddContact__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/edit/:id",
     exact: true,
-    component: _EditContact__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }))));
+    component: _EditContact__WEBPACK_IMPORTED_MODULE_7__["default"]
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Example);
@@ -71886,6 +71929,39 @@ function Example() {
 if (document.getElementById('example')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Footer.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Footer.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var Nav = function Nav() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container text-center mb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8 m-auto"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-danger"
+  }, "\xA9"), "\xA0Laravel & React Contact Book by ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-danger"
+  }, "Shishir Bhuiyan")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Nav);
 
 /***/ }),
 
@@ -72011,19 +72087,19 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
                 if (res.data.status === 200) {
                   _this.setState({
-                    message: res.data.success
+                    message: res.data.error
                   });
 
                   _this.fetchContact();
 
-                  jquery__WEBPACK_IMPORTED_MODULE_5___default()('#success').css({
+                  jquery__WEBPACK_IMPORTED_MODULE_5___default()('#error').css({
                     'display': 'block'
                   });
                   setTimeout(function () {
-                    jquery__WEBPACK_IMPORTED_MODULE_5___default()('#success').css({
+                    jquery__WEBPACK_IMPORTED_MODULE_5___default()('#error').css({
                       'display': 'none'
                     });
-                  }, 8000);
+                  }, 2000);
                 }
 
               case 4:
@@ -72059,7 +72135,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "container"
+        className: "container tableshow"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Alert__WEBPACK_IMPORTED_MODULE_4__["default"], {
         message: this.state.message
       }), this.state.contacts.map(function (contact) {
@@ -72120,15 +72196,17 @@ var Nav = function Nav() {
     className: "nav-link",
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
-    className: "h5"
-  }, "Laravel & React")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "text-danger h3"
+  }, "Contact Book")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "navbar-nav ml-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "nav-link",
     to: "/addContact"
-  }, "AddContact"))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-plus"
+  }), "\xA0AddContact"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
